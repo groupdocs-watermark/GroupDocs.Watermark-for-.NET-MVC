@@ -24,6 +24,8 @@ using System.Web.Http.Cors;
 using System.Xml;
 using System.Xml.Serialization;
 using static GroupDocs.Watermark.Options.PreviewOptions;
+using Font = GroupDocs.Watermark.Watermarks.Font;
+using FontStyle = GroupDocs.Watermark.Watermarks.FontStyle;
 
 namespace GroupDocs.Watermark.MVC.Products.Watermark.Controllers
 {
@@ -440,9 +442,7 @@ namespace GroupDocs.Watermark.MVC.Products.Watermark.Controllers
 
                                 TextWatermark watermark = new TextWatermark(textData.text, font)
                                 {
-                                    // TODO: check why following line leads to disappearing watermark on document.
-                                    // watermark.ForegroundColor = Color.FromArgb(watermarkData.fontColor);
-                                    ForegroundColor = Color.Red,
+                                    ForegroundColor = ColorParser.Parse(textData.fontColor),
                                     X = watermarkData.left,
                                     Y = watermarkData.top,
                                     Width = watermarkData.width,

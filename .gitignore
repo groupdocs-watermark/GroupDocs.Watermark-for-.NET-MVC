@@ -31,3 +31,6 @@ src/DocumentSamples
 
 # Finder in OSX
 .DS_Store
+
+.idea
+_ReSharper.Caches
